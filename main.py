@@ -5,7 +5,7 @@ from config import BOT_TOKEN
 from database import init_db
 from handlers.client import router as client_router
 from handlers.admin import router as admin_router
-from utils.scheduler import reminder
+from utils.reminder import reminder
 
 
 async def main():

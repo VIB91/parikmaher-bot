@@ -12,7 +12,7 @@ main_kb = ReplyKeyboardMarkup(
 
 
 def get_masters_kb():
-    masters = ["Иван", "Алексей"]
+    masters = ["Юлия", "Мария"]
 
     kb = InlineKeyboardMarkup(inline_keyboard=[])
     for m in masters:
@@ -44,3 +44,23 @@ def get_delete_kb(bookings):
 
     return kb
 
+def get_services_kb():
+    services = ["Стрижка Мужская", "Стрижка Женская", "Комплекс"]
+
+    kb = InlineKeyboardMarkup(inline_keyboard=[])
+    for s in services:
+        kb.inline_keyboard.append([
+            InlineKeyboardButton(
+                text=s,
+                callback_data=f"service_{s}"
+            )
+        ])
+    return kb
+
+def get_slots_kb(slots: list):
+    kb = InlineKeyboardMarkup(inline_keyboard=[])
+    for slot in slots:
+        kb.inline_keyboard.append([
+            InlineKeyboardButton(text=slot, callback_data=f"time_{slot}")
+        ])
+    return kb
