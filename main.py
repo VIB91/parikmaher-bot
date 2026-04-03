@@ -5,8 +5,8 @@ from config import BOT_TOKEN
 from database import init_db
 from handlers.client import router as client_router
 from handlers.admin import router as admin_router
-from utils.scheduler import reminder
-
+from utils.reminder import reminder
+from services.notifier import notifier
 
 async def main():
     bot = Bot(token=BOT_TOKEN)
@@ -24,5 +24,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    import asyncio
     asyncio.run(main())
