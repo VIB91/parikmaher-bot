@@ -8,6 +8,7 @@ from services.booking_service import get_free_slots
 from database import add_booking, get_user_bookings, delete_booking_by_id
 from config import ADMIN_ID
 from datetime import datetime, timedelta
+from aiogram.filters import Command
 
 router = Router()
 
@@ -17,6 +18,11 @@ class Booking(StatesGroup):
     service = State()
     date = State()
 
+
+
+@router.message(Command("ping"))
+async def ping(message: Message):
+    await message.answer("✅ Бот работает")
 
 @router.message(F.text == "старт")
 async def start(message: Message):
